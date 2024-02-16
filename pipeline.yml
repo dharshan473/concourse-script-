@@ -4,7 +4,7 @@ resources:
   source:
     uri: https://github.com/dharshan473/concourse-script
     branch: master
-  check_every: 15s # Set the check interval to 15 seconds
+  check_every: 15s 
 
 jobs:
 - name: run-helloworld
