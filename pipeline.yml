@@ -2,10 +2,9 @@ resources:
 - name: my-git-repo
   type: git
   source:
-    uri: https://github.com/dharshan473/concourse
+    uri: https://github.com/dharshan473/concourse-script
     branch: master
-  check_every: 1m # Adjust the check interval as needed
-  tags: [ 'your-git-tag' ] # Add tags to trigger pipeline update
+  check_every: 15s # Set the check interval to 15 seconds
 
 jobs:
 - name: run-helloworld
