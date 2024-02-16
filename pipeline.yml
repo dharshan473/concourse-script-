@@ -1,0 +1,32 @@
+resources:
+- name: my-git-repo
+  type: git
+  source:
+    uri: https://github.com/dharshan473/concourse
+    branch: master
+  check_every: 1m # Adjust the check interval as needed
+  tags: [ 'your-git-tag' ] # Add tags to trigger pipeline update
+
+jobs:
+- name: run-helloworld
+  plan:
+  - get: my-git-repo
+    trigger: true
+  - task: execute-helloworld
+    config:
+      platform: linux
+      image_resource:
+        type: registry-image
+        source:
+          repository: ubuntu
+          tag: 'latest'
+      inputs:
+      - name: my-git-repo
+      run:
+        path: sh
+        args:
+        - -exc
+        - |
+          echo "Welcome to the Updated Dharshan World"> script.sh
+          ls -la
+          cat script.sh
