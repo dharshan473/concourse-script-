@@ -3,7 +3,7 @@ resources:
   type: git
   source:
     uri: https://github.com/dharshan473/concourse-script
-    branch: master
+    branch: main
   check_every: 15s 
 
 jobs:
@@ -26,7 +26,7 @@ jobs:
         args:
         - -exc
         - |
-          echo "Welcome to the Updated Dharshan World"> script.sh
+          echo "hello world"> script.sh
           ls -la
           cat script.sh
 
