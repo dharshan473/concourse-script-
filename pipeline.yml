@@ -1,31 +1,29 @@
 resources:
-- name: my-git-repo1
+- name: repo
   type: git
+  icon: github
   source:
     uri: https://github.com/dharshan473/concourse-script
-    branch: main
-  check_every: 15s 
 
 jobs:
-- name: run-helloworld1
+- name: job
+  public: true
   plan:
-  - get: my-git-repo1
+  - get: repo
     trigger: true
-  - task: execute-helloworld1
+  - task: list-files
     config:
+      inputs:
+        - name: repo
       platform: linux
       image_resource:
         type: registry-image
         source:
           repository: ubuntu
           tag: 'latest'
-      inputs:
-      - name: my-git-repo1
       run:
         path: sh
         args:
         - -exc
         - |
           echo "hello"
-          
-
