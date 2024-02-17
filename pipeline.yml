@@ -1,29 +1,43 @@
 resources:
-- name: repo
+- name: my-git-repo
   type: git
-  icon: github
   source:
     uri: https://github.com/dharshan473/concourse-script
+    branch: main
+  check_every: 15s 
+
+- name: concourse-flys
+  type: fly
+  source:
+    target: local
+    team: main
+    insecure: true
+    username: test
+    password: test
+    fly_version: latest
 
 jobs:
-- name: job
-  public: true
+- name: run-helloworld
   plan:
-  - get: repo
+  - get: my-git-repo
     trigger: true
-  - task: list-files
+  - task: execute-helloworld
     config:
-      inputs:
-        - name: repo
       platform: linux
       image_resource:
         type: registry-image
         source:
           repository: ubuntu
           tag: 'latest'
+      inputs:
+      - name: my-git-repo
       run:
         path: sh
         args:
         - -exc
         - |
-          echo "hello"
+          echo "hello"> script.sh
+          ls -la
+          cat script.sh
+          
+
