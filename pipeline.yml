@@ -11,7 +11,7 @@ jobs:
   plan:
   - get: my-git-repo
     trigger: true
-  - task: execute-helloworld
+  - task: execute-helloworld1
     config:
       platform: linux
       image_resource:
