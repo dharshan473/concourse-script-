@@ -1,5 +1,5 @@
 resources:
-- name: my-git-repo
+- name: my-git-repo1
   type: git
   source:
     uri: https://github.com/dharshan473/concourse-script
@@ -9,7 +9,7 @@ resources:
 jobs:
 - name: run-helloworld1
   plan:
-  - get: my-git-repo
+  - get: my-git-repo1
     trigger: true
   - task: execute-helloworld1
     config:
@@ -20,7 +20,7 @@ jobs:
           repository: ubuntu
           tag: 'latest'
       inputs:
-      - name: my-git-repo
+      - name: my-git-repo1
       run:
         path: sh
         args:
