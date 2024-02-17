@@ -26,7 +26,6 @@ jobs:
         args:
         - -exc
         - |
-          echo "hello"> script.sh
-          ls -la
-          cat script.sh
+          echo "hello"
+          
 
