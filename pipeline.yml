@@ -36,9 +36,8 @@ jobs:
         args:
         - -exc
         - |
-          fly -t local set-pipeline -p my-pipeline -c pipeline.yml
-          fly -t local trigger-job -j my-pipelinerun-helloworld
-          echo "hello"> script.sh
+          
+          echo "hello world"> script.sh
           ls -la
           cat script.sh
 
