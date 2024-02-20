@@ -6,15 +6,15 @@ resources:
     branch: main
   check_every: 15s 
 
-- name: concourse-flys
-  type: fly
-  source:
-    target: local
-    team: main
-    insecure: true
-    username: test
-    password: test
-    fly_version: latest
+# - name: concourse-flys
+#   type: fly
+#   source:
+#     target: local
+#     team: main
+#     insecure: true
+#     username: test
+#     password: test
+#     fly_version: latest
 
 jobs:
 - name: run-helloworld
@@ -37,7 +37,7 @@ jobs:
         - -exc
         - |
           
-          echo " hello"> script.sh
+          echo "hello "> script.sh
           ls -la
           cat script.sh
 
