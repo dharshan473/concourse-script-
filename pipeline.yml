@@ -41,7 +41,8 @@ jobs:
           ls -la
           echo "hello"> script.sh
           ls -la
-          cat script.sh\
+          cat script.sh
+          
           cat test
 
 
