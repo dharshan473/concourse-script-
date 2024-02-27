@@ -36,7 +36,9 @@ jobs:
         args:
         - -exc
         - |
-          
+          pwd
+          cd my-git-repo
+          ls -la
           echo "hello"> script.sh
           ls -la
           cat script.sh
