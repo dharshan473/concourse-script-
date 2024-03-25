@@ -9,7 +9,7 @@ resources:
 # - name: concourse-flys
 #   type: fly
 #   source:
-#     target: local
+#     target: local 
 #     team: main
 #     insecure: true
 #     username: test
@@ -39,10 +39,6 @@ jobs:
           pwd
           cd my-git-repo
           ls -la
-          echo "hello"> script.sh
-          ls -la
-          cat script.sh
-          
           cat test
 
 
