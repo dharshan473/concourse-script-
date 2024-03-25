@@ -4,7 +4,7 @@ resources:
   source:
     uri: https://github.com/dharshan473/concourse-script
     branch: main
-  check_every: 15s 
+  check_every: 5s 
 
 # - name: concourse-flys
 #   type: fly
